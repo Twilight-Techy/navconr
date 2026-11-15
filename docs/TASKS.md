@@ -210,7 +210,7 @@ Task dependencies name direct prerequisites. Milestone gates also apply: an indi
 
 - [ ] **T064 — Publish the authorized library release and verify it.** Dependencies: T063 and applicable user authorization. Publish approved artifacts and release notes to the chosen destinations. Done when the published version installs, examples work from published artifacts, and release references are recorded in memory. If authorization is absent, keep the candidate ready and this task open.
 
-  Current evidence: Public GitHub source publication is authorized at https://github.com/Twilight-Techy/navconr. No package-registry release performed.
+  Current evidence: Public GitHub source is published at https://github.com/Twilight-Techy/navconr on main. No package-registry release performed.
 
 - [ ] **T065 — Submit the authorized paper and complete the handoff.** Dependencies: T059, T063 and applicable user authorization. Submit the approved manuscript/artifacts to the selected destination, verify references and access, and record outcomes. Done when submission/publication status, released versions, reproduction instructions, known limitations, and the next maintenance backlog are accurate. Library publication and paper submission can occur independently once their prerequisites are met.
 
