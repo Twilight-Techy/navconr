@@ -1,10 +1,12 @@
 # Local release candidate and publication gates
 
-Build locally with `python scripts/release.py` from the development environment. The script builds the inspector, copies its static output into the package, builds the wheel/source distribution, and records artifact hashes in `reports/release-artifacts.json`. It never uploads artifacts or selects a distribution license.
+Build locally with `.venv/bin/python scripts/release.py` from the development environment. The script builds the inspector, copies its static output into the package, builds the wheel/source distribution, and records artifact hashes in `reports/release-artifacts.json`. It never uploads artifacts. Navconr is [MIT licensed](../LICENSE); Python and inspector metadata declare MIT, and both Python distributions include the license text. Research bundles also include it. Dependencies retain their own licenses and notices.
 
 Verify a candidate in an isolated environment by installing the wheel, running `navconr --version`, ingesting a temporary corpus, querying it, and serving the bundled inspector from outside the source checkout. Optional extras should not be required for Markdown/lexical use. Format/search/MCP workflows need their declared extras.
 
-The current version is `0.1.0rc1`. The GitHub source repository is https://github.com/Twilight-Techy/navconr. Package-registry identity and distribution license remain unresolved. The user authorized public source publication; this does not select an open-source license or publish a registry release. External publishing and paper submission need concrete destinations, appropriate account access, and the user's applicable authorization. Real-model checks are separately deferred by the user.
+The current version is `0.1.0rc1`. The public GitHub source repository is [Twilight-Techy/navconr](https://github.com/Twilight-Techy/navconr). The user confirmed open-source distribution, and MIT is recorded in `LICENSE`. Package-registry identity and dependency/asset compatibility review remain open before a registry release. Registry publishing and paper submission need concrete destinations, appropriate account access, and the user's applicable authorization. Real-model checks are separately deferred by the user.
+
+For new artifacts, inspect wheel `METADATA` for `License-Expression: MIT` and `License-File: LICENSE`, verify the packaged license matches the root file, and check that the source archive includes both READMEs. Historical receipts describe earlier builds; an old unresolved-license field does not override the current license. Keep historical hashes attached to the artifacts they describe.
 
 Required remaining research gates include independently reviewed annotations, stronger semantic/model baselines, compatible external-method runs, common-reader answer evaluation, final claim/protocol freeze, and clean independent reproduction. A software smoke report and manuscript draft do not complete these gates.
 

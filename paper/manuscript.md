@@ -81,7 +81,7 @@ Regression tests cover byte fidelity, Unicode/CRLF, source revisions, failed pub
 
 ## 7. Limitations and remaining study
 
-The corpus is fictional, authored by the implementation process, lexically easy, and small. Its unanswerable queries are artificial. Passage containment is not a substitute for human relevance judgments or citation entailment. The local policies have deterministic ordering and limited exploration. Sparse vector comparisons do not substitute for strong learned embeddings and rerankers. Original PageIndex/RAPTOR/NavTree runs, independently reviewed data, multiple real corpora/models, common-reader answer evaluation, repeated-cost analysis and independent reproduction are still required. Real-model checks are explicitly deferred by the project owner. Public distribution license, author identity and venue remain unresolved.
+The corpus is fictional, authored by the implementation process, lexically easy, and small. Its unanswerable queries are artificial. Passage containment is not a substitute for human relevance judgments or citation entailment. The local policies have deterministic ordering and limited exploration. Sparse vector comparisons do not substitute for strong learned embeddings and rerankers. Original PageIndex/RAPTOR/NavTree runs, independently reviewed data, multiple real corpora/models, common-reader answer evaluation, repeated-cost analysis and independent reproduction are still required. Real-model checks are explicitly deferred by the project owner. The software is MIT licensed; paper author identity and venue remain unresolved.
 
 ## 8. Reproduction
 

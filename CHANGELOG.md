@@ -12,4 +12,6 @@
 - Update reuse, integrity verification, backup/restore, pins and garbage collection.
 - Authored software fixtures, reproducible local evaluation, scale profiling and release scripts.
 
-Real-model checks are deferred. Independent research evaluation, upstream-system reproductions, final license, public release and paper submission remain pending. This is not a claim that all planned acceptance gates have passed.
+- Friendly main README, detailed technical README, and MIT licensing in source and distribution metadata.
+
+Real-model checks are deferred. Independent research evaluation, upstream-system reproductions, package-registry identity/release, dependency/asset review and paper submission remain pending. This is not a claim that all planned acceptance gates have passed.

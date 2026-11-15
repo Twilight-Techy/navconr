@@ -10,4 +10,4 @@ Provide a fixed lexical controller before model-directed actions. Search support
 
 Build the inspector separately, consuming a bounded local read-only API. Providers and integrations never execute retrieved instructions. Plaintext provider secrets are environment configuration and excluded from artifacts. Configured remote providers receive selected map/source content; the default path has no remote calls.
 
-No public distribution license is inferred from the user's request. Build local release candidates with license status explicitly unresolved. Package publishing and paper submission need concrete destinations and authorized account access. Implementation can proceed without those.
+At the initial implementation decision, no public distribution license was inferred and local candidates recorded the license as unresolved. **Licensing update, 2026-11-15:** the user subsequently confirmed that Navconr is open source. MIT is now selected; see [LICENSE](../../LICENSE) and [release guidance](../RELEASE.md). Package publishing and paper submission still need concrete destinations and authorized account access.

@@ -1,6 +1,7 @@
 {
   "name": "navconr-inspector",
   "version": "0.1.0-rc.1",
+  "license": "MIT",
   "private": true,
   "type": "module",
   "scripts": {

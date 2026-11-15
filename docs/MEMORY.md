@@ -71,7 +71,7 @@ Candidate method: adaptive allocation of a retrieval budget across map inspectio
 | Quantitative performance targets | T005/T035 | Correctness gates first; empirical quality/cost targets after pilot, before held-out evaluation |
 | Cross-document semantic grouping policy | T016/T029 | Explicit hierarchy first; test generated grouping against deterministic grouping |
 | PDF extraction and code-parser dependencies | T045–T047 | Evaluate source fidelity and locator quality before selecting adapters |
-| Distribution license, public corpora, package identity | T060–T062 | Record choices and redistribution terms before publishing |
+| Public corpora, package identity, dependency/asset compatibility | T060–T062 | MIT selected; verify remaining redistribution terms and registry identity before package publication |
 | Final paper claim and venue | T056–T059 | Follow measured findings and completed related-work review |
 | Public publishing, hosting, and submission | T064–T065 | Prepare artifacts first; obtain applicable user authorization before execution |
 
@@ -86,14 +86,15 @@ Candidate method: adaptive allocation of a retrieval budget across map inspectio
 - Authored data: 70 fictional questions, ten disjoint document families, two software-test partitions, nine methods and two budgets: 1,260 recorded local comparisons with no runtime failures. These are software checks, not a human-reviewed research pilot or answer-quality study.
 - Scale checks cover 100, 500 and 1,000 sources. Host metadata remains whole-revision; updates rebuild metadata/FTS membership while reusing unchanged source parsing. Do not claim logarithmic resource growth.
 - Paper: preliminary manuscript, actual-result figures and reproduction tooling. Scientific claims, independent study, upstream comparisons, author/venue and submission remain open.
-- Public GitHub source repository: https://github.com/Twilight-Techy/navconr under Twilight-Techy. Source is pushed on main, which tracks origin/main. Package-registry publishing, distribution license and paper submission remain separate open items. Do not infer an open-source license.
+- Public GitHub source repository: https://github.com/Twilight-Techy/navconr under Twilight-Techy. Source is pushed on main, which tracks origin/main. The user confirmed open-source distribution; MIT is selected, copyright 2026 Ibrahim Makanjuola (the owner's public GitHub profile name). Python/inspector metadata and future distribution scripts declare/include it. Package-registry identity/publishing, dependency/asset review, and paper submission remain open.
+- The root README is the friendly introduction; README.technical.md covers architecture, APIs, budgets, integrations and development. Keep their commands executable and their claims consistent with STATUS.md.
 - The user explicitly selected **Leave model checks pending**. Ollama is mock-tested; no live model checks or downloaded embedding-model runs have been performed. Do not ask again or run them without updated user direction.
 - Context dumps and extracted original conversation remain unchanged and are excluded from release artifacts.
 - TASKS.md owns checkbox status. A checked local deliverable does not close a deferred milestone gate.
 
 ## Next action
 
-The local build is implemented and verified. Remaining acceptance work requires independently reviewed annotations, configured models/embeddings, compatible upstream runs, final study/protocol/claims, license/package-registry identity and authorized package publication/submission. Keep the user's real-model deferral in force. Do not replace scientific or external-release requirements with authored or mocked results.
+The local build is implemented and verified. Remaining acceptance work requires independently reviewed annotations, configured models/embeddings, compatible upstream runs, final study/protocol/claims, package-registry identity, dependency/asset review, and authorized package publication/submission. Keep the user's real-model deferral in force. Do not replace scientific or external-release requirements with authored or mocked results.
 
 Local artifacts and detailed evidence are under `dist/` and `reports/`; earlier exploratory experiment outputs were preserved under `.navconr/archive/experiments` rather than mixed with the final software checks.
 
@@ -123,8 +124,12 @@ Reproduction finding: the first isolated-wheel comparison caught evidence-cost d
 
 Final local verification: source checkout and isolated wheel both retrieve exact evidence; bundled inspector serves from the wheel; repository ingestion, trace replay and backup/restore pass. Publication and the independent research study remain open.
 
-2026-11-15 GitHub handoff: the user explicitly requested a public repository and source push. Target: https://github.com/Twilight-Techy/navconr. Preserve context/ and its local integrity receipt outside Git; omit environments, databases, build outputs and caches. Git commit identity uses the account’s GitHub noreply address. Source publication does not authorize a package-registry release or paper submission, and no distribution license was selected.
+2026-11-15 GitHub handoff: the user explicitly requested a public repository and source push. Target: https://github.com/Twilight-Techy/navconr. Preserve context/ and its local integrity receipt outside Git; omit environments, databases, build outputs and caches. Git commit identity uses the account’s GitHub noreply address. Source publication does not authorize a package-registry release or paper submission. At this historical step no license was selected; the subsequent documentation request established MIT licensing.
 
 Verified GitHub publication: public repository https://github.com/Twilight-Techy/navconr created and initial source commit e86a550ab43f2f8720746486a6cd6d4ba4bfc8f9 pushed to main. GitHub visibility and matching remote/local commit were checked. Private context, local receipts, environments, databases, caches and build outputs are excluded. Registry release and paper submission remain pending; real-model deferral is unchanged.
 
 GitHub CI portability correction: Python 3.11’s PackageMetadata typing protocol lacks get(), so the environment manifest now uses the required Name header through __getitem__. Mypy passes on Python 3.11/3.12/3.13, and all four evaluator tests pass on 3.11. Current hosted checks are available at https://github.com/Twilight-Techy/navconr/actions.
+
+2026-11-15 documentation/licensing update: the user requested a friendly main README, technical README and open-source license. Added README.technical.md and the standard MIT license, updated Python/inspector metadata and future release/research bundle generators, and reconciled current licensing statements. Hatchling's minimum is 1.27 for PEP 639 metadata; lockfiles retain existing dependency versions. Historical artifact receipts remain unchanged and describe their original builds. T060 stays open for registry identity and dependency/asset review.
+
+Documentation verification: fresh locked core-only environment executes ingestion/query, both technical Python examples, demo preparation, integrity and backup commands. The inspector builds and serves the prepared demo. All 56 local links/images checked in the refreshed entry/contribution/release documents resolve; MCP JSON parses. New wheel/source builds include the exact MIT text; wheel metadata declares License-Expression MIT and License-File LICENSE, and the source archive includes both READMEs without private context. Changed Python scripts pass Ruff lint/format checks; uv lock --check and git diff --check pass. These checks make no live-model calls and do not replace independent research gates.

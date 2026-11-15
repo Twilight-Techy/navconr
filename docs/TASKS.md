@@ -196,7 +196,7 @@ Task dependencies name direct prerequisites. Milestone gates also apply: an indi
 
 - [ ] **T060 — Resolve distribution identity and licensing.** Dependencies: T059. Verify package/repository names, choose the distribution license, audit dependency/asset compatibility, and identify any private material excluded from release. Done when release metadata and publishable-content boundaries are recorded; unresolved user-owned choices are surfaced before publication.
 
-  Current evidence: Dependency inventory prepared; GitHub source target is Twilight-Techy/navconr. Owner license and package-registry identity remain unresolved.
+  Current evidence: Dependency inventory prepared; GitHub source target is Twilight-Techy/navconr. The user confirmed open-source distribution; MIT is selected in LICENSE, Python/inspector metadata and future artifact scripts. Package-registry identity and dependency/asset compatibility review remain open.
 
 - [ ] **T061 — Complete release quality and boundary checks.** Dependencies: T060. Run relevant checks across supported environments, source-root/prompt-injection cases, migrations, backup/restore, provider capability behavior, and optional extras. Done when critical failures are fixed and material limitations appear in release notes.
 
@@ -224,4 +224,6 @@ Verification: 52 Python tests pass on each of Python 3.11, 3.12 and 3.13; three 
 
 Scheduling exception: the user requested the entire local build and explicitly deferred real-model checks. Independent implementation and software checks proceeded beyond those external gates. Checked task deliverables are verified locally; this does not mark a milestone's deferred research/model/publication gate complete. The original milestone acceptance criteria remain in force.
 
-Next acceptance work: independently reviewed pilot data, configured model/embedding checks, strong external reproductions, final study/protocol/claim, distribution license/identity, and authorized public publication/submission. GitHub source publication is authorized; package-registry publishing and paper submission remain open.
+Next acceptance work: independently reviewed pilot data, configured model/embedding checks, strong external reproductions, final study/protocol/claim, package-registry identity, dependency/asset compatibility review, and authorized registry publication/submission. GitHub source publication is authorized and MIT licensing is established; package-registry publishing and paper submission remain open.
+
+2026-11-15 user-requested documentation/licensing refresh: T062 now has a friendly main README and a separate technical README. MIT license and package metadata are added; release/research scripts include it in future artifacts. Fresh core-only installation runs both Python examples and CLI/demo/backup flows; inspector build/serve, 56 local links/images, MCP JSON, wheel/source license inclusion, lock consistency and changed-script lint/format checks pass. Historical receipts are preserved. T060 remains open for package-registry identity and dependency/asset review; task counts are unchanged.

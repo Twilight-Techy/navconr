@@ -22,6 +22,8 @@ for name in [
     "pyproject.toml",
     "uv.lock",
     "README.md",
+    "README.technical.md",
+    "LICENSE",
     "LICENSE_STATUS.md",
     "benchmarks/dataset.json",
     "benchmarks/create_fixtures.py",
@@ -58,7 +60,8 @@ with zipfile.ZipFile(destination, "w", compression=zipfile.ZIP_DEFLATED) as arch
 
 This archive contains authored fixtures, core source, recorded software experiments,
 an isolated-wheel reproduction, and a preliminary manuscript. It is not a completed
-scientific study or a public license grant. Private conversation dumps are excluded.
+scientific study. Navconr is MIT licensed; see LICENSE. Dependencies retain their own
+licenses and notices. Private conversation dumps are excluded.
 
 To rerun core experiments after extracting:
 
@@ -79,7 +82,7 @@ manifest = {
     "files": len(files) + 1,
     "sha256": hashlib.sha256(destination.read_bytes()).hexdigest(),
     "status": "preliminary draft; no independent research validation or submission",
-    "license": "unresolved",
+    "license": "MIT",
     "private_context_included": False,
 }
 (ROOT / "reports" / "research-bundle.json").write_text(json.dumps(manifest, indent=2) + "\n")

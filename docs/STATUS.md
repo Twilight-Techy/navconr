@@ -12,7 +12,7 @@ The local system is implemented as `0.1.0rc1`. It includes the library, CLI, for
 | Inspector | Search, source/topic maps, relationship-origin filters, exact evidence, trace replay, responsive layout | No hosted multi-user service is included |
 | Agents | LangGraph/LangChain tools and reference workflow, real MCP stdio client/server | Live-model agent evaluation remains deferred |
 | Evaluation | 70 authored questions, nine local methods, two budgets, both software partitions, raw manifests/results | Independent human review, representative research corpora, original upstream-system runs and final study |
-| Distribution/paper | Local build tooling, documentation, manuscript draft and result figures | License/package-registry identity, full release approval, research validation and authorized registry publication/submission |
+| Distribution/paper | MIT-licensed public source, local build tooling, friendly/technical READMEs, manuscript draft and result figures | Package-registry identity, dependency/asset review, full release approval, research validation and authorized registry publication/submission |
 
 Completed checks: 52 Python tests on each of Python 3.11, 3.12 and 3.13; three browser workflows; static typing, lint/format checks; viewer build; 1,260 local software-fixture comparisons without runtime failures; 100–1,000 source scale fixtures with bounded map pages. See [validation evidence](../reports/validation.json), [scale data](../reports/scale.json), [development results](../reports/smoke-dev.json), and [second software partition](../reports/smoke-heldout.json).
 
@@ -24,4 +24,4 @@ The [manuscript](../paper/manuscript.md) is explicitly preliminary. Its tables a
 
 The isolated wheel serves its bundled inspector without the format/MCP/framework extras and reproduces the development experiment metrics and evidence costs. A prior cross-revision FTS ranking issue was found by that check, corrected with database schema 2 and regression-tested; see [ADR 002](decisions/002-revision-local-search.md) and [wheel verification](../reports/wheel-smoke.json).
 
-Public source repository: [Twilight-Techy/navconr](https://github.com/Twilight-Techy/navconr). Source was published and public visibility verified on 2026-11-15. Private context history and runtime artifacts stay outside Git; registry releases, licensing and paper submission remain open.
+Public source repository: [Twilight-Techy/navconr](https://github.com/Twilight-Techy/navconr), under the [MIT license](../LICENSE). Source was published and public visibility verified on 2026-11-15. Private context history and runtime artifacts stay outside Git; registry releases, dependency/asset review and paper submission remain open.

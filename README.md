@@ -1,33 +1,72 @@
 # Navconr
 
-Navigate bounded knowledge maps and retrieve exact, versioned source evidence.
+**Give your agent a map before it reads the documents.**
+
+Navconr helps AI agents find their way through collections of documents and code. It builds a small, browsable map of your files, lets an agent explore the relevant sections, and returns the exact source passages it chooses to read.
+
+Think of a table of contents that connects related ideas across files and can open the original text behind each entry.
+
+```text
+Your files → A lightweight map → Explore relevant sections → Read exact evidence
+```
+
+[Technical README](README.technical.md) · [Documentation](docs/README.md) · [Contributing](CONTRIBUTING.md) · [MIT license](LICENSE)
+
+## What you can do
+
+- **Explore a collection in small steps.** Browse sources, open sections, search, and follow links without loading everything into an agent's context.
+- **Read the actual source.** Retrieved passages preserve the indexed text and identify its version and location.
+- **Set limits.** Put bounds on source bytes, navigation steps, elapsed time, and optional model usage.
+- **See the journey.** Inspect source and topic maps, relationships, retrieved passages, and recorded actions in the local viewer.
+- **Use your own agent.** Start with the Python library or CLI, or connect through MCP and LangGraph/LangChain integrations.
+
+Navconr supports Markdown, plain text, text-based PDF pages, Python, TypeScript/TSX, HTML, DOCX, and notebook source cells. See the [format guide](docs/ADAPTERS.md) for extraction limits.
+
+## Try it
+
+You need Git, Python 3.11 or newer, and [uv](https://docs.astral.sh/uv/getting-started/installation/). Install from source:
 
 ```bash
-uv venv .venv
-uv pip install --python .venv/bin/python -e '.[dev,formats,search,mcp]'
-.venv/bin/navconr ingest examples/corpus --db .navconr/demo.sqlite
-.venv/bin/navconr query 'How are refresh tokens revoked?' --db .navconr/demo.sqlite
+git clone https://github.com/Twilight-Techy/navconr.git
+cd navconr
+uv sync --locked
+uv run navconr ingest examples/corpus --db .navconr/demo.sqlite
+uv run navconr query "refresh token revocation" --db .navconr/demo.sqlite
 ```
 
-The library runs locally without credentials. Model-directed navigation is optional. The working release is `0.1.0rc1`; external publication, licensing, and research claims remain separate gates. See [project documents](docs/README.md) and [task status](docs/TASKS.md).
+The query returns source evidence, its revision, usage, a stop reason, and a record of the actions taken. This example runs locally without model credentials. To explore your own files, replace `examples/corpus` with a directory you want to index.
 
-```python
-from navconr import Index, Limits
+## Open the inspector
 
-with Index('.navconr/demo.sqlite') as index:
-    index.ingest('examples/corpus')
-    session = index.session(limits=Limits(source_bytes=4096))
-    candidates = session.search('refresh token revocation')
-    for card in candidates.items[:2]:
-        for item in session.read(card.span_ids):
-            if item.evidence:
-                print(item.evidence.span.source, item.evidence.text)
+With Node.js 22 and npm installed, prepare a sample topic map and build the viewer:
+
+```bash
+uv run python scripts/prepare_demo.py
+npm --prefix viewer ci
+npm --prefix viewer run build
+uv run navconr serve --db .navconr/demo.sqlite
 ```
 
-Use a session to share a budget across tools and pin a revision. Convenience methods on `Index` create a new session per call. Byte locators are zero-based/end-exclusive into an immutable original or explicitly identified extraction artifact. Summaries are navigation hints, not evidence.
+Open [localhost:8765](http://127.0.0.1:8765). You can browse sources and topics, inspect relationships, read exact passages, and replay the prepared retrieval. Stop the server with Ctrl-C.
 
-Prepare the topic-map demo with `.venv/bin/python scripts/prepare_demo.py`, build the inspector with `cd viewer && npm ci && npm run build`, then run `make viewer` from the root. The inspector supports source/topic views, relationship-origin filters, exact source reads and recorded actions.
+![Navconr inspector showing the sample collection and evidence](reports/inspector-desktop.png)
 
-Optional LangGraph/LangChain integration is available with `navconr[langgraph]`. See [quickstart](docs/QUICKSTART.md), [API guide](docs/API.md), [current status](docs/STATUS.md), and [research limitations](docs/EVALUATION.md). The paper under `paper/` is a preliminary draft backed by authored software fixtures; independent research validation remains open.
+## Build with Navconr
 
-Source repository: [Twilight-Techy/navconr](https://github.com/Twilight-Techy/navconr). A distribution license has not been selected; see [distribution status](LICENSE_STATUS.md).
+The [technical README](README.technical.md) covers the architecture, Python examples, navigation tools, search options, budgets, integrations, and development workflow. The [API guide](docs/API.md) goes deeper into the contracts.
+
+The library works without an LLM. Model-directed navigation, enrichment, and answer synthesis are optional and require an explicitly configured provider.
+
+## Project status
+
+Navconr is an early release candidate (`0.1.0rc1`), available here as source. The library, inspector, integrations, and local software checks are implemented. Live-model validation and independent research evaluation remain pending. The preliminary paper and authored test results do not establish a quality or efficiency advantage over other retrieval methods.
+
+See [current status](docs/STATUS.md) and [evaluation notes](docs/EVALUATION.md) for the evidence and remaining work.
+
+## Contribute
+
+Bug reports, documentation improvements, format adapters, and retrieval experiments are welcome. Start with the [contribution guide](CONTRIBUTING.md), or [open an issue](https://github.com/Twilight-Techy/navconr/issues).
+
+## License
+
+Navconr is open source under the [MIT license](LICENSE).

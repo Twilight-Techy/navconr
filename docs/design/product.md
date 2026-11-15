@@ -8,4 +8,4 @@ Source means original immutable bytes. Artifact means a versioned extraction fro
 
 Public workflows must work without a model: ingest, inspect, search, follow, read, retrieve using a fixed lexical navigation policy, export, replay, evaluate, backup, and restore. A model policy is optional. Return explicit errors or stop reasons for invalid/stale references, unsupported inputs, absent evidence, exhausted budgets, deadlines, and provider failure. Never silently truncate evidence.
 
-Release readiness requires documented limitations and validated artifacts. Publication identity, license, public destinations, third-party benchmark parity, human annotation review, and full research claims are separate gates; local functionality does not establish them.
+Release readiness requires documented limitations and validated artifacts. Navconr is open source under the [MIT license](../../LICENSE). Package-registry identity, dependency/asset compatibility review, third-party benchmark parity, human annotation review, and full research claims remain separate gates; local functionality does not establish them.

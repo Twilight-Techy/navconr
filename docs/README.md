@@ -6,6 +6,9 @@ These documents cover the project from design through implementation, evaluation
 
 | Document | Purpose |
 | --- | --- |
+| [Main README](../README.md) | Friendly introduction and first local run |
+| [Technical README](../README.technical.md) | Architecture, contracts, APIs, integrations, and development |
+| [MIT license](../LICENSE) | Open-source license for Navconr |
 | [STATUS.md](STATUS.md) | Implemented capabilities, verification and remaining gates |
 | [QUICKSTART.md](QUICKSTART.md) | Run the local library, CLI and inspector |
 | [API.md](API.md) | Public tools, provider and agent integrations |
@@ -28,4 +31,4 @@ At the beginning of a session, read the rules, memory, and relevant tasks. Befor
 
 ## Current scope
 
-The user authorized building and running the complete project. Local implementation and software checks now exist. The full plan still includes deferred live-model validation, independent research review/study, distribution identity/licensing and public publication/submission gates. See STATUS.md for the distinction between completed local deliverables and open acceptance work.
+The user authorized building and running the complete project and confirmed that it is open source. Local implementation and software checks now exist, and the source is MIT licensed. The full plan still includes deferred live-model validation, independent research review/study, package-registry identity, dependency/asset review, and registry publication/submission gates. See STATUS.md for the distinction between completed local deliverables and open acceptance work.

@@ -1,4 +1,4 @@
-"""Build local release artifacts. Does not publish or select a license."""
+"""Build MIT-licensed local release artifacts without uploading packages."""
 
 import hashlib
 import json
@@ -38,8 +38,8 @@ def main():
         json.dumps(
             {
                 "artifacts": artifacts,
-                "publication": "not published",
-                "license": "unresolved; no public distribution authorized",
+                "publication": "not published to a package registry",
+                "license": "MIT",
                 "live_model_checks": "deferred by user",
             },
             indent=2,

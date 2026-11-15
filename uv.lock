@@ -1895,7 +1895,7 @@ search = [
 requires-dist = [
     { name = "beautifulsoup4", marker = "extra == 'formats'", specifier = ">=4.12,<5" },
     { name = "build", marker = "extra == 'dev'", specifier = ">=1,<2" },
-    { name = "hatchling", marker = "extra == 'dev'", specifier = ">=1.25,<2" },
+    { name = "hatchling", marker = "extra == 'dev'", specifier = ">=1.27,<2" },
     { name = "httpx", specifier = ">=0.27,<1" },
     { name = "langgraph", marker = "extra == 'langgraph'", specifier = ">=1,<2" },
     { name = "markdown-it-py", specifier = ">=3,<5" },
