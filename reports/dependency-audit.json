@@ -1,0 +1,198 @@
+{
+  "status": "dependency inventory; legal review and project license remain pending",
+  "python": [
+    {
+      "package": "pydantic",
+      "version": "2.14.3",
+      "license_metadata": "MIT"
+    },
+    {
+      "package": "markdown-it-py",
+      "version": "4.3.0",
+      "license_metadata": "not stated in this metadata field"
+    },
+    {
+      "package": "httpx",
+      "version": "0.28.1",
+      "license_metadata": "BSD-3-Clause"
+    },
+    {
+      "package": "pypdf",
+      "version": "6.21.4",
+      "license_metadata": "BSD-3-Clause"
+    },
+    {
+      "package": "python-docx",
+      "version": "1.2.0",
+      "license_metadata": "MIT"
+    },
+    {
+      "package": "beautifulsoup4",
+      "version": "4.15.0",
+      "license_metadata": "MIT License"
+    },
+    {
+      "package": "tree-sitter",
+      "version": "0.25.2",
+      "license_metadata": "not stated in this metadata field"
+    },
+    {
+      "package": "tree-sitter-typescript",
+      "version": "0.23.2",
+      "license_metadata": "MIT"
+    },
+    {
+      "package": "scikit-learn",
+      "version": "1.9.1",
+      "license_metadata": "BSD-3-Clause"
+    },
+    {
+      "package": "numpy",
+      "version": "2.5.4",
+      "license_metadata": "BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0"
+    },
+    {
+      "package": "mcp",
+      "version": "1.30.0",
+      "license_metadata": "MIT"
+    }
+  ],
+  "javascript_production": [
+    {
+      "package": "@types/d3-color",
+      "version": "3.1.3",
+      "license": "MIT"
+    },
+    {
+      "package": "@types/d3-drag",
+      "version": "3.0.7",
+      "license": "MIT"
+    },
+    {
+      "package": "@types/d3-interpolate",
+      "version": "3.0.4",
+      "license": "MIT"
+    },
+    {
+      "package": "@types/d3-selection",
+      "version": "3.0.12",
+      "license": "MIT"
+    },
+    {
+      "package": "@types/d3-transition",
+      "version": "3.0.9",
+      "license": "MIT"
+    },
+    {
+      "package": "@types/d3-zoom",
+      "version": "3.0.9",
+      "license": "MIT"
+    },
+    {
+      "package": "@types/react",
+      "version": "19.3.0",
+      "license": "MIT"
+    },
+    {
+      "package": "@types/react-dom",
+      "version": "19.3.0",
+      "license": "MIT"
+    },
+    {
+      "package": "@xyflow/react",
+      "version": "12.12.1",
+      "license": "MIT"
+    },
+    {
+      "package": "@xyflow/system",
+      "version": "0.0.84",
+      "license": "MIT"
+    },
+    {
+      "package": "classcat",
+      "version": "5.0.5",
+      "license": "MIT"
+    },
+    {
+      "package": "csstype",
+      "version": "3.2.3",
+      "license": "MIT"
+    },
+    {
+      "package": "d3-color",
+      "version": "3.1.1",
+      "license": "ISC"
+    },
+    {
+      "package": "d3-dispatch",
+      "version": "3.0.2",
+      "license": "ISC"
+    },
+    {
+      "package": "d3-drag",
+      "version": "3.0.1",
+      "license": "ISC"
+    },
+    {
+      "package": "d3-ease",
+      "version": "3.0.2",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "package": "d3-interpolate",
+      "version": "3.0.2",
+      "license": "ISC"
+    },
+    {
+      "package": "d3-selection",
+      "version": "3.0.1",
+      "license": "ISC"
+    },
+    {
+      "package": "d3-timer",
+      "version": "3.0.2",
+      "license": "ISC"
+    },
+    {
+      "package": "d3-transition",
+      "version": "3.0.2",
+      "license": "ISC"
+    },
+    {
+      "package": "d3-zoom",
+      "version": "3.0.1",
+      "license": "ISC"
+    },
+    {
+      "package": "lucide-react",
+      "version": "0.468.0",
+      "license": "ISC"
+    },
+    {
+      "package": "react",
+      "version": "19.3.1",
+      "license": "MIT"
+    },
+    {
+      "package": "react-dom",
+      "version": "19.3.1",
+      "license": "MIT"
+    },
+    {
+      "package": "scheduler",
+      "version": "0.28.0",
+      "license": "MIT"
+    },
+    {
+      "package": "use-sync-external-store",
+      "version": "1.7.0",
+      "license": "MIT"
+    },
+    {
+      "package": "zustand",
+      "version": "4.5.7",
+      "license": "MIT"
+    }
+  ],
+  "project_license": "unresolved"
+}

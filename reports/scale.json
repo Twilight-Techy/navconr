@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "fixture": "generated fictional Markdown services",
+  "rows": [
+    {
+      "sources": 100,
+      "nodes": 601,
+      "index_seconds": 0.35861310200198204,
+      "update_seconds": 0.14311079099934432,
+      "query_ms": 48.758427998109255,
+      "database_bytes": 1138688,
+      "overview_pages": 5,
+      "largest_map_page_bytes": 4457,
+      "process_peak_rss_kib": 51064,
+      "rss_note": "Cumulative process high-water mark on Linux, not a per-index allocation measure",
+      "stop_reason": "completed"
+    },
+    {
+      "sources": 500,
+      "nodes": 3001,
+      "index_seconds": 1.250175313998625,
+      "update_seconds": 1.496862426000007,
+      "query_ms": 113.17825600053766,
+      "database_bytes": 5218304,
+      "overview_pages": 25,
+      "largest_map_page_bytes": 4477,
+      "process_peak_rss_kib": 97172,
+      "rss_note": "Cumulative process high-water mark on Linux, not a per-index allocation measure",
+      "stop_reason": "completed"
+    },
+    {
+      "sources": 1000,
+      "nodes": 6001,
+      "index_seconds": 2.28531380899949,
+      "update_seconds": 6.0226050239980395,
+      "query_ms": 252.31344400162925,
+      "database_bytes": 10305536,
+      "overview_pages": 50,
+      "largest_map_page_bytes": 4477,
+      "process_peak_rss_kib": 145888,
+      "rss_note": "Cumulative process high-water mark on Linux, not a per-index allocation measure",
+      "stop_reason": "completed"
+    }
+  ]
+}

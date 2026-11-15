@@ -1,0 +1,17 @@
+{
+  "artifacts": [
+    {
+      "name": "navconr-0.1.0rc1-py3-none-any.whl",
+      "bytes": 191595,
+      "sha256": "8626f0b8c92b14105f31a03a183b0532fa1f55e9ac4ef038b52dc5c3bfdfd326"
+    },
+    {
+      "name": "navconr-0.1.0rc1.tar.gz",
+      "bytes": 561760,
+      "sha256": "d2e69383aa587d262e96d9640d198daddc80eef99200f490e5e5b21ceead211a"
+    }
+  ],
+  "publication": "not published",
+  "license": "unresolved; no public distribution authorized",
+  "live_model_checks": "deferred by user"
+}

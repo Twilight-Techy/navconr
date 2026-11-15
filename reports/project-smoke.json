@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "sources": 98,
+  "nodes": 1718,
+  "spans": 1120,
+  "revision": "9333a062ec6fcfdd9747a79c6f41d31d",
+  "query": "num_predict",
+  "stop_reason": "completed",
+  "run_id": "eccfd34ee50b4bf99a852ace17bf72a3",
+  "evidence": [
+    {
+      "source": "src/navconr/providers.py",
+      "start": 1520,
+      "end": 3513,
+      "blob": "6c0c97f6664b5146a301d172b2fe033a1f5af2e6f34959d185d9520a0e0c7a41"
+    }
+  ],
+  "exact_bytes_verified": true,
+  "trace_replay_verified": true,
+  "backup_restore_verified": true,
+  "integrity": {
+    "revisions": 2,
+    "integrity": "ok",
+    "schema_version": 2
+  }
+}

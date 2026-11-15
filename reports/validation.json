@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-15",
+  "platform": "Linux aarch64",
+  "package": "0.1.0rc1",
+  "python_tests": [
+    {
+      "version": "3.11.18",
+      "passed": 52,
+      "failed": 0
+    },
+    {
+      "version": "3.12.3",
+      "passed": 52,
+      "failed": 0
+    },
+    {
+      "version": "3.13.18",
+      "passed": 52,
+      "failed": 0
+    }
+  ],
+  "static_checks": {
+    "ruff": "passed",
+    "format": "passed",
+    "mypy_check_untyped_defs": "passed"
+  },
+  "browser": {
+    "passed": 3,
+    "cases": [
+      "source evidence and trace playback",
+      "mobile empty state",
+      "semantic maps and provenance filters"
+    ]
+  },
+  "viewer_build": "passed",
+  "database_schema": 2,
+  "record_schema": 1,
+  "migration_1_to_2_and_rollback": "passed",
+  "smoke_comparisons": {
+    "questions": 70,
+    "methods": 9,
+    "budgets": [
+      512,
+      2048
+    ],
+    "rows": 1260,
+    "runtime_failures": 0,
+    "provenance": "authored fictional fixtures; independent human review pending"
+  },
+  "isolated_wheel": {
+    "schema_version": 1,
+    "version": "0.1.0rc1",
+    "module": "/home/ubuntu/MyProjects/navconr/.navconr/wheel-check/lib/python3.13/site-packages/navconr/__init__.py",
+    "isolated_install": true,
+    "bundled_inspector_http": true,
+    "exact_retrieval": true,
+    "core_without_format_mcp_framework_extras": true,
+    "reproduction_rows": 630,
+    "retrieval_and_cost_metrics_match": true,
+    "latency_comparison": "not asserted",
+    "reproduction_path": "/home/ubuntu/MyProjects/navconr/.navconr/wheel-reproduction/results/b52a6ee945b3dd18912a16c2ebb20108",
+    "research_gate": "software reproduction only; independent research study still pending"
+  },
+  "scale_report": "reports/scale.json",
+  "artifacts_private_context_excluded": true,
+  "known_open_gates": [
+    "live model/embedding checks (deferred by user)",
+    "independent human pilot review and research study",
+    "original upstream-system comparisons",
+    "final license and public identity",
+    "authorized publication and submission"
+  ],
+  "project_run": {
+    "schema_version": 1,
+    "sources": 98,
+    "nodes": 1718,
+    "spans": 1120,
+    "revision": "9333a062ec6fcfdd9747a79c6f41d31d",
+    "query": "num_predict",
+    "stop_reason": "completed",
+    "run_id": "eccfd34ee50b4bf99a852ace17bf72a3",
+    "evidence": [
+      {
+        "source": "src/navconr/providers.py",
+        "start": 1520,
+        "end": 3513,
+        "blob": "6c0c97f6664b5146a301d172b2fe033a1f5af2e6f34959d185d9520a0e0c7a41"
+      }
+    ],
+    "exact_bytes_verified": true,
+    "trace_replay_verified": true,
+    "backup_restore_verified": true,
+    "integrity": {
+      "revisions": 2,
+      "integrity": "ok",
+      "schema_version": 2
+    }
+  },
+  "release_artifacts": {
+    "artifacts": [
+      {
+        "name": "navconr-0.1.0rc1-py3-none-any.whl",
+        "bytes": 191595,
+        "sha256": "8626f0b8c92b14105f31a03a183b0532fa1f55e9ac4ef038b52dc5c3bfdfd326"
+      },
+      {
+        "name": "navconr-0.1.0rc1.tar.gz",
+        "bytes": 561760,
+        "sha256": "d2e69383aa587d262e96d9640d198daddc80eef99200f490e5e5b21ceead211a"
+      }
+    ],
+    "publication": "not published",
+    "license": "unresolved; no public distribution authorized",
+    "live_model_checks": "deferred by user"
+  },
+  "research_bundle": {
+    "file": "navconr-research-draft.zip",
+    "files": 85,
+    "sha256": "f4f503f81de8ebf4a9823f96752e3a7d3b8a6092c4d864d8daef380e07f05668",
+    "status": "preliminary draft; no independent research validation or submission",
+    "license": "unresolved",
+    "private_context_included": false
+  }
+}

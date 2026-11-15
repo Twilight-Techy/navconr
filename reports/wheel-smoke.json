@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "version": "0.1.0rc1",
+  "module": "/home/ubuntu/MyProjects/navconr/.navconr/wheel-check/lib/python3.13/site-packages/navconr/__init__.py",
+  "isolated_install": true,
+  "bundled_inspector_http": true,
+  "exact_retrieval": true,
+  "core_without_format_mcp_framework_extras": true,
+  "reproduction_rows": 630,
+  "retrieval_and_cost_metrics_match": true,
+  "latency_comparison": "not asserted",
+  "reproduction_path": "/home/ubuntu/MyProjects/navconr/.navconr/wheel-reproduction/results/b52a6ee945b3dd18912a16c2ebb20108",
+  "research_gate": "software reproduction only; independent research study still pending"
+}
