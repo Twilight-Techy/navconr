@@ -222,7 +222,7 @@ async def evaluate(
             sorted(
                 (distribution.metadata["Name"].lower(), distribution.version)
                 for distribution in importlib.metadata.distributions()
-                if distribution.metadata.get("Name")
+                if distribution.metadata["Name"]
             )
         ),
         "provenance": dataset.provenance,
