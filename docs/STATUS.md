@@ -12,6 +12,7 @@ The local system is implemented as `0.1.0rc1`. It includes the library, CLI, for
 | Inspector | Search, source/topic maps, relationship-origin filters, exact evidence, trace replay, responsive layout | No hosted multi-user service is included |
 | Agents | LangGraph/LangChain tools and reference workflow, real MCP stdio client/server | Live-model agent evaluation remains deferred |
 | Embedding | Application-owned callbacks and SDK formats, URL-free protocols/cache identities, CLI factories, core-only installed wheel in a separate project | SDK mappings are fixture-tested; live cross-provider parity is unverified |
+| External-agent capture | One native Haiku read tool call, exact returned evidence and actual inspector screenshot; model usage stays in a separate host receipt | Final replies are not observed automatically; full autonomous multistep evaluation remains unrun |
 | Evaluation | 70 authored questions, nine local methods, two budgets, both software partitions, raw manifests/results | Independent human review, representative research corpora, original upstream-system runs and final study |
 | Distribution/paper | MIT-licensed public source, local build tooling, friendly/technical READMEs, manuscript draft and result figures | Package-registry identity, dependency/asset review, full release approval, research validation and authorized registry publication/submission |
 

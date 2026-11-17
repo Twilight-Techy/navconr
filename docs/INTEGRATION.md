@@ -26,6 +26,10 @@ with Index("knowledge.sqlite") as index:
 
 Projects in other languages can use the optional [MCP stdio interface](API.md). Python applications can call `Index` and `Session` directly without any agent framework, server or inspector.
 
+The tool integration observes Navconr invocations, arguments, returned evidence and its own usage limits. It does not observe the host agent's final assistant reply, prompts, thinking, provider identity or model-token usage automatically. A host can explicitly supply additional metadata, but normal inspector traces show tool activity. The separate optional answer-synthesis helper has access only to replies it explicitly requests itself.
+
+An actual external Haiku `navconr_read` capture is shown in the [inspector screenshot](../reports/haiku-tool-inspector.png), with a separate [host-side receipt](../reports/haiku-tool-call.json). The application code is [capture_haiku_tool_run.py](../scripts/capture_haiku_tool_run.py): it registers a native tool, dispatches the generated call through `AgentTools`, and saves only tool invocations/results for replay. This is a single forced read call with application-prepared navigation context, not a full autonomous agent evaluation. Running the script is an explicit paid action; viewing/replaying the recorded result is free.
+
 ## Use Navconr's optional model components
 
 For the reference controller, answer synthesis or enrichment, wrap an existing async application function:

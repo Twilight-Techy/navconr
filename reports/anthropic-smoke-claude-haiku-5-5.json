@@ -1,0 +1,52 @@
+{
+  "timestamp": "2026-11-17T11:31:45.459722+00:00",
+  "model": "claude-haiku-5-5",
+  "api_version": "2026-10-21",
+  "scope": "one authored passage: local retrieval, cited model answer, exact-byte check",
+  "max_input_tokens": 600,
+  "max_output_tokens": 160,
+  "effort": "low",
+  "retries": 0,
+  "price_usd_per_million": {
+    "input": 0.1,
+    "output": 0.5
+  },
+  "pricing_source": "https://platform.claude.com/docs/en/about-claude/pricing",
+  "status": "passed",
+  "answer": {
+    "schema_version": 1,
+    "text": "Delete the session's Redis session key; token validation checks it on every request.",
+    "span_ids": [
+      "910a402fbaa107333b8f650dc9f850c8"
+    ],
+    "abstained": false
+  },
+  "source": "operations.md",
+  "span_id": "910a402fbaa107333b8f650dc9f850c8",
+  "source_sha256": "67e7411c87fb45372c48fa03730270eed663989c313185649d9530db845bd911",
+  "exact_bytes_verified": true,
+  "citation_membership_verified": true,
+  "run_id": "68ad43a55a9b4a579af0f8438b86fa81",
+  "revision": "111e7c6954bce90aa88f8246b5f79148",
+  "inspector_database": ".navconr/haiku-inspector.sqlite",
+  "usage": {
+    "input_tokens": 378,
+    "output_tokens": 73,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0
+  },
+  "ledger": {
+    "schema_version": 1,
+    "steps": 6,
+    "expansions": 3,
+    "map_bytes": 4623,
+    "source_bytes": 120,
+    "model_calls": 1,
+    "model_tokens": 451,
+    "reserved_tokens": 0,
+    "token_accounting": "measured"
+  },
+  "preflight_input_tokens": 378,
+  "provider_stop_reason": "end_turn",
+  "estimated_cost_usd": 7.430000000000002e-05
+}

@@ -1,0 +1,52 @@
+{
+  "timestamp": "2026-11-17T11:37:14.960281+00:00",
+  "model": "claude-haiku-5-5",
+  "scope": "one external-agent native tool call; no final assistant answer",
+  "model_generations": 1,
+  "retries": 0,
+  "max_output_tokens": 160,
+  "preflight_input_tokens": 942,
+  "usage": {
+    "input_tokens": 942,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 55,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard",
+    "inference_geo": "global",
+    "speed": "standard"
+  },
+  "estimated_cost_usd": 0.0001217,
+  "price_usd_per_million": {
+    "input": 0.1,
+    "output": 0.5
+  },
+  "pricing_source": "https://platform.claude.com/docs/en/about-claude/pricing",
+  "run_id": "a5df03348502476da77fa564ec4bf0f4",
+  "revision": "111e7c6954bce90aa88f8246b5f79148",
+  "tool_call": {
+    "name": "navconr_read",
+    "arguments": {
+      "span_ids": [
+        "910a402fbaa107333b8f650dc9f850c8"
+      ]
+    }
+  },
+  "tool_trace_actions": [
+    "overview",
+    "search",
+    "expand",
+    "expand",
+    "expand",
+    "read"
+  ],
+  "exact_bytes_verified": true,
+  "library_knows_model_reply": false,
+  "library_model_usage": "not observed; model call belongs to host application"
+}
