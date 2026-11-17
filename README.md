@@ -71,10 +71,12 @@ The query returns source evidence, its revision, usage, a stop reason, and a rec
 Browse the source and topic maps, follow relationships, inspect exact passages, and replay recorded retrievals.
 
 <p align="center">
-  <a href="reports/inspector-desktop.png"><img src="reports/inspector-desktop.png" alt="Navconr inspector: recorded retrievals on the left, a navigation map in the center, and exact source evidence on the right" width="100%"></a>
+  <a href="reports/haiku-tool-inspector.png"><img src="reports/haiku-tool-inspector.png" alt="Navconr inspector showing a real Haiku-issued read tool call: recorded retrieval on the left, navigation map in the center, and exact source evidence on the right" width="100%"></a>
   <br>
-  <sub>Retrieval history → navigation map → original evidence. Click to enlarge.</sub>
+  <sub>A real Haiku-issued read → recorded tool activity → original evidence. Click to enlarge.</sub>
 </p>
+
+Captured on the sample documents with application-prepared navigation context and one model-issued `navconr_read` call. [View the run receipt](reports/haiku-tool-call.json) · [Capture script](scripts/capture_haiku_tool_run.py)
 
 <details>
 <summary><strong>Run the inspector locally</strong> — Node.js 22 and npm required</summary>
