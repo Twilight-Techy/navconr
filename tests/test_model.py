@@ -115,6 +115,51 @@ async def test_callback_unknown_usage_and_preflight_budget_refusal():
     assert len(calls) == 1
 
 
+@pytest.mark.parametrize(
+    "input_tokens,output_tokens,expected",
+    [
+        (None, None, 30),
+        (5, None, 15),
+        (None, 7, 27),
+        (5, 7, 12),
+    ],
+)
+async def test_partial_sdk_usage_keeps_reported_counts_and_estimates_missing_counts(
+    input_tokens, output_tokens, expected
+):
+    async def complete(request):
+        return ModelResponse({"action": "stop"}, input_tokens, output_tokens)
+
+    provider = CallableProvider(
+        complete,
+        name="partial-usage",
+        max_output_tokens=10,
+        estimate_input_tokens=lambda request: 20,
+    )
+    budget = Budget(Limits(model_tokens=100))
+    await provider.action({}, budget)
+    assert budget.usage.model_tokens == expected
+    measured = input_tokens is not None and output_tokens is not None
+    assert budget.usage.token_accounting == ("measured" if measured else "estimated")
+    assert budget.usage.reserved_tokens == 0
+
+
+async def test_partial_usage_cannot_hide_a_known_token_overrun():
+    async def complete(request):
+        return ModelResponse({"action": "stop"}, None, 200)
+
+    provider = CallableProvider(
+        complete,
+        name="partial-usage",
+        max_output_tokens=10,
+        estimate_input_tokens=lambda request: 20,
+    )
+    budget = Budget(Limits(model_tokens=100))
+    with pytest.raises(BudgetExceeded):
+        await provider.action({}, budget)
+    assert budget.usage.model_tokens == 220 and budget.usage.reserved_tokens == 0
+
+
 @pytest.mark.parametrize("failure", ["error", "invalid", "over_cap"])
 async def test_callback_failures_are_charged_without_retries_or_secret_output(failure):
     calls = 0

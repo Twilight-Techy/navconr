@@ -19,7 +19,8 @@ ResponseModel = TypeVar("ResponseModel", bound=BaseModel)
 
 
 class StructuredProvider(Protocol):
-    name: str
+    @property
+    def name(self) -> str: ...
 
     async def structured(
         self, prompt: dict, schema: type[ResponseModel], budget: Budget
@@ -27,7 +28,8 @@ class StructuredProvider(Protocol):
 
 
 class PolicyProvider(Protocol):
-    name: str
+    @property
+    def name(self) -> str: ...
 
     async def action(self, prompt: dict, budget: Budget) -> Action: ...
 
@@ -121,7 +123,9 @@ class CallableProvider:
             if any(value is not None and (type(value) is not int or value < 0) for value in counts):
                 raise ValueError("invalid model usage")
             measured = all(value is not None for value in counts)
-            actual = sum(value for value in counts if value is not None) if measured else reserved
+            actual = (
+                response.input_tokens if response.input_tokens is not None else estimated_input
+            ) + (response.output_tokens if response.output_tokens is not None else output_cap)
             settled = True
             budget.reconcile_model(reserved, actual, measured)
             if response.output_tokens is not None and response.output_tokens > output_cap:
