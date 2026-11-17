@@ -1,6 +1,6 @@
 # Project memory
 
-Last updated: 2026-11-15 (Africa/Lagos).
+Last updated: 2026-11-17 (Africa/Lagos).
 
 ## Purpose and user intent
 
@@ -133,3 +133,7 @@ GitHub CI portability correction: Python 3.11’s PackageMetadata typing protoco
 2026-11-15 documentation/licensing update: the user requested a friendly main README, technical README and open-source license. Added README.technical.md and the standard MIT license, updated Python/inspector metadata and future release/research bundle generators, and reconciled current licensing statements. Hatchling's minimum is 1.27 for PEP 639 metadata; lockfiles retain existing dependency versions. Historical artifact receipts remain unchanged and describe their original builds. T060 stays open for registry identity and dependency/asset review.
 
 Documentation verification: fresh locked core-only environment executes ingestion/query, both technical Python examples, demo preparation, integrity and backup commands. The inspector builds and serves the prepared demo. All 56 local links/images checked in the refreshed entry/contribution/release documents resolve; MCP JSON parses. New wheel/source builds include the exact MIT text; wheel metadata declares License-Expression MIT and License-File LICENSE, and the source archive includes both READMEs without private context. Changed Python scripts pass Ruff lint/format checks; uv lock --check and git diff --check pass. These checks make no live-model calls and do not replace independent research gates.
+
+2026-11-17 README visual refresh: the user requested a more visually appealing main README. Added an original SVG banner in docs/assets/readme-hero.svg using the inspector's forest-green palette, centered navigation and CI/Python/MIT/status badges, a styled Mermaid workflow, compact feature/format/documentation tables, a linked inspector screenshot, and collapsible inspector setup. Python/CLI commands and the project's early-release/research limitations are retained. The technical README remains the developer reference.
+
+Visual verification: reviewed local GitHub-style previews at desktop (1280px) and phone (390px) widths. All images/badges load, inspector details expand, Mermaid renders, and neither preview has page-wide horizontal overflow. SVG XML parses; all 20 local links/images/anchors resolve. The source distribution includes the banner and excludes private context; git diff --check passes. This presentation change needs no new runtime tests or live-model checks.

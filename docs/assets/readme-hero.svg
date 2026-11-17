@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="400" viewBox="0 0 1280 400" fill="none" role="img" aria-labelledby="title description">
+  <title id="title">Navconr — give your agent a map</title>
+  <desc id="description">A forest-green banner showing documents connected through a navigation map to highlighted source evidence.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1280" y2="400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#102F28"/>
+      <stop offset="1" stop-color="#1D4C3C"/>
+    </linearGradient>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#9DC5AD" fill-opacity=".13"/>
+    </pattern>
+    <linearGradient id="route" x1="700" y1="90" x2="1070" y2="320" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7CA68B"/>
+      <stop offset="1" stop-color="#D0ECB1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="400" rx="20" fill="url(#background)"/>
+  <rect x="600" width="680" height="400" rx="20" fill="url(#grid)"/>
+  <circle cx="1110" cy="195" r="243" stroke="#BDE1C4" stroke-opacity=".06"/>
+  <circle cx="1110" cy="195" r="172" stroke="#BDE1C4" stroke-opacity=".06"/>
+
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <g stroke="#D0ECB1" stroke-width="2.5" stroke-linejoin="round">
+      <path d="m64 61 16-8 16 8-16 8-16-8Z"/>
+      <path d="m64 69 16 8 16-8M64 77l16 8 16-8"/>
+    </g>
+    <text x="111" y="76" font-size="14" font-weight="600" letter-spacing="2.2" fill="#A8C5B1">BOUNDED KNOWLEDGE NAVIGATION</text>
+    <text x="59" y="170" font-size="82" font-weight="750" letter-spacing="-4" fill="#F5F7EF">navconr</text>
+    <text x="64" y="228" font-size="29" font-weight="500" letter-spacing="-.6" fill="#F5F7EF">Give your agent a map.</text>
+    <text x="64" y="268" font-size="29" font-weight="500" letter-spacing="-.6" fill="#CBE8B4">Keep the evidence exact.</text>
+    <path d="M64 308h480" stroke="#789C86" stroke-opacity=".35"/>
+    <text x="64" y="344" font-size="13" font-weight="600" letter-spacing="1.7" fill="#B6CDBD">LOCAL FIRST</text>
+    <circle cx="188" cy="339" r="2" fill="#7CA68B"/>
+    <text x="207" y="344" font-size="13" font-weight="600" letter-spacing="1.7" fill="#B6CDBD">PYTHON + YOUR AGENT</text>
+
+    <g stroke="#789C86" stroke-width="1.5" stroke-linecap="round">
+      <path d="M856 116v25c0 10-8 18-18 18H733c-10 0-18 8-18 18v24"/>
+      <path d="M856 116v25c0 10 8 18 18 18h162c10 0 18 8 18 18v24"/>
+      <path d="M715 249v24c0 10 8 18 18 18h95" stroke-dasharray="4 6"/>
+    </g>
+    <path d="M1054 249v24c0 10-8 18-18 18h-28" stroke="url(#route)" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="1054" cy="263" r="4" fill="#D0ECB1"/>
+
+    <rect x="757" y="48" width="198" height="68" rx="12" fill="#234C3E" stroke="#638B73"/>
+    <g stroke="#C9DEC9" stroke-width="1.5" stroke-linejoin="round">
+      <path d="M778 67h12l5 5v24h-17V67Z"/>
+      <path d="M790 67v6h5M782 81h9M782 86h9"/>
+    </g>
+    <text x="808" y="77" font-size="11" letter-spacing="1.5" fill="#A8C5B1">YOUR COLLECTION</text>
+    <text x="808" y="98" font-size="16" font-weight="600" fill="#F5F7EF">Documents + code</text>
+
+    <rect x="633" y="201" width="164" height="48" rx="10" fill="#234C3E" stroke="#638B73"/>
+    <circle cx="657" cy="225" r="4" stroke="#C9DEC9" stroke-width="1.5"/>
+    <text x="675" y="231" font-size="16" font-weight="500" fill="#DFEBDD">Browse the map</text>
+    <rect x="960" y="201" width="188" height="48" rx="10" fill="#CBE8B4" stroke="#CBE8B4"/>
+    <path d="m977 225 4 4 8-9" stroke="#244B32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="1000" y="231" font-size="16" font-weight="600" fill="#173D2E">Follow a path</text>
+
+    <rect x="828" y="270" width="180" height="98" rx="12" fill="#F4F5ED"/>
+    <text x="846" y="293" font-size="10" font-weight="600" letter-spacing="1.4" fill="#55725F">ORIGINAL EVIDENCE</text>
+    <path d="M847 308h93" stroke="#BCC7B7" stroke-width="4" stroke-linecap="round"/>
+    <rect x="842" y="319" width="150" height="17" rx="3" fill="#D9E9C8"/>
+    <path d="M847 327h133" stroke="#527C4D" stroke-width="4" stroke-linecap="round"/>
+    <path d="M847 346h108" stroke="#BCC7B7" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="998" cy="272" r="12" fill="#CBE8B4" stroke="#173D2E" stroke-width="3"/>
+    <path d="m993 272 3 3 6-7" stroke="#244B32" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
