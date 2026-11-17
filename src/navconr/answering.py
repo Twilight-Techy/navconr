@@ -6,7 +6,7 @@ from pydantic import Field
 
 from .budget import Budget
 from .models import NavconrError, Record, Result
-from .providers import OllamaProvider
+from .providers import StructuredProvider
 
 
 class Answer(Record):
@@ -16,7 +16,7 @@ class Answer(Record):
 
 
 async def answer(
-    question: str, retrieval: Result, provider: OllamaProvider, budget: Budget
+    question: str, retrieval: Result, provider: StructuredProvider, budget: Budget
 ) -> Answer:
     if not retrieval.evidence:
         return Answer(text="No source evidence was retrieved.", abstained=True)

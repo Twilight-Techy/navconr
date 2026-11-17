@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import asyncio
 import json
-from typing import Protocol
+from typing import Protocol, TypeVar
 from urllib.parse import urlsplit
 
 import httpx
@@ -12,6 +12,17 @@ from pydantic import BaseModel
 
 from .budget import Budget
 from .models import Action, BudgetExceeded, NavconrError
+
+ResponseModel = TypeVar("ResponseModel", bound=BaseModel)
+
+
+class StructuredProvider(Protocol):
+    name: str
+    base_url: str
+
+    async def structured(
+        self, prompt: dict, schema: type[ResponseModel], budget: Budget
+    ) -> ResponseModel: ...
 
 
 class PolicyProvider(Protocol):

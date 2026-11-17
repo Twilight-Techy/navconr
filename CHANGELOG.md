@@ -14,4 +14,4 @@
 
 - Friendly main README, detailed technical README, and MIT licensing in source and distribution metadata.
 
-Real-model checks are deferred. Independent research evaluation, upstream-system reproductions, package-registry identity/release, dependency/asset review and paper submission remain pending. This is not a claim that all planned acceptance gates have passed.
+Added an opt-in Claude Messages adapter, shared structured-provider protocol, and a single-generation smoke script with input/output caps and no retries. One cited-answer smoke test passes; broader real-model checks remain pending. Independent research evaluation, upstream-system reproductions, package-registry identity/release, dependency/asset review and paper submission remain pending. This is not a claim that all planned acceptance gates have passed.

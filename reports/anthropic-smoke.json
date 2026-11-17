@@ -1,0 +1,49 @@
+{
+  "timestamp": "2026-11-17T10:51:12.326772+00:00",
+  "model": "claude-opus-5-5",
+  "api_version": "2026-10-21",
+  "scope": "one authored passage: local retrieval, cited model answer, exact-byte check",
+  "max_input_tokens": 600,
+  "max_output_tokens": 160,
+  "effort": "low",
+  "retries": 0,
+  "price_usd_per_million": {
+    "input": 4,
+    "output": 20
+  },
+  "pricing_source": "https://platform.claude.com/docs/en/models/opus-5-5/overview",
+  "status": "passed",
+  "answer": {
+    "schema_version": 1,
+    "text": "Delete the session's Redis session key.",
+    "span_ids": [
+      "910a402fbaa107333b8f650dc9f850c8"
+    ],
+    "abstained": false
+  },
+  "source": "operations.md",
+  "span_id": "910a402fbaa107333b8f650dc9f850c8",
+  "source_sha256": "67e7411c87fb45372c48fa03730270eed663989c313185649d9530db845bd911",
+  "exact_bytes_verified": true,
+  "citation_membership_verified": true,
+  "usage": {
+    "input_tokens": 377,
+    "output_tokens": 63,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0
+  },
+  "ledger": {
+    "schema_version": 1,
+    "steps": 0,
+    "expansions": 0,
+    "map_bytes": 0,
+    "source_bytes": 0,
+    "model_calls": 1,
+    "model_tokens": 440,
+    "reserved_tokens": 0,
+    "token_accounting": "measured"
+  },
+  "preflight_input_tokens": 377,
+  "provider_stop_reason": "end_turn",
+  "estimated_cost_usd": 0.002768
+}

@@ -56,6 +56,28 @@ Enrichment is atomic and cannot alter source spans. Answer synthesis validates t
 
 The Ollama adapter reserves byte-based input estimates and provider-limited outputs, reconciles reported usage, and charges failed requests conservatively. It rejects `hard_model_tokens=True` before a request because it has no trusted preflight tokenizer. Cancellation cannot guarantee that a remote server stops computing after the client disconnects.
 
+### Minimal Claude integration
+
+`AnthropicProvider` from `navconr.anthropic` implements the same `structured`/`action` interface. `answer`, `enrich`, relationship inference and evaluation accept the shared `StructuredProvider` protocol; `Navigator` accepts its action interface. No additional SDK dependency is needed.
+
+```python
+import os
+from navconr.anthropic import AnthropicProvider
+
+provider = AnthropicProvider(
+    "claude-opus-5-5",
+    api_key=os.environ["ANTHROPIC_API_KEY"],
+    max_input_tokens=600,
+    max_output_tokens=160,
+)
+```
+
+The adapter sends only to `https://api.anthropic.com`, uses API version `2026-10-21`, low effort, standard service, terse JSON prompts, a free token-count preflight, and provider-enforced output bounds. It fails before generation when the preflight exceeds the input cap. Token counts are estimates before execution, so a requested hard total-token guarantee is rejected. It never automatically retries or follows redirects; failed generation attempts consume their reservations conservatively. Only text output and token totals are retained; thinking blocks and raw HTTP error bodies are discarded. API keys stay in request headers and are not part of prompts, traces, cache keys or receipts. The CLI's model options currently configure Ollama; use Python for Claude.
+
+The explicit paid smoke command is `.venv/bin/python scripts/smoke_anthropic.py`. It reads `ANTHROPIC_API_KEY` or prompts with hidden input, retrieves one short authored passage, verifies exact source bytes, asks for one cited answer, and writes a credential-free receipt. It permits one generation, 160 output tokens, zero retries and a 45-second deadline. It is excluded from ordinary tests/CI. Running it again can spend credits; the existing [receipt](../reports/anthropic-smoke.json) records the completed run. Broader live navigation/enrichment remains unverified.
+
+Protocol and pricing references: [Anthropic Messages API](https://platform.claude.com/docs/en/api/http/messages/create), [free token counting](https://platform.claude.com/docs/en/build-with-claude/token-counting), and [Opus 5.5 pricing](https://platform.claude.com/docs/en/models/opus-5-5/overview).
+
 `AgentTools.begin`, `call`, and `close` form the framework-neutral integration. Tool argument schemas are available from `AgentTools.schemas()`; only overview/expand/search/follow/read are allowed. Each session has independent limits, an immutable revision, and a deadline. The optional MCP transport exposes these same operations:
 
 ```json

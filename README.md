@@ -113,7 +113,7 @@ See the [format guide](docs/ADAPTERS.md) for extraction limits and supported str
 
 > **Early release · `0.1.0rc1`**
 >
-> The library, inspector, integrations, and local software checks are implemented. Live-model validation and independent research evaluation remain pending. The preliminary paper and authored test results do not establish a quality or efficiency advantage over other retrieval methods.
+> The library, inspector, integrations, and local software checks are implemented. A [minimal Claude API smoke test](reports/anthropic-smoke.json) passes; broader model validation and independent research evaluation remain pending. The preliminary paper and authored test results do not establish a quality or efficiency advantage over other retrieval methods.
 
 See [current status](docs/STATUS.md) and [evaluation notes](docs/EVALUATION.md) for the evidence and remaining work.
 

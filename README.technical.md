@@ -135,9 +135,11 @@ Optional Ollama navigation, with an endpoint and model you have already configur
   --endpoint http://127.0.0.1:11434
 ```
 
-This sends query/map/evidence content to the selected endpoint. Navconr does not start Ollama or install models. Optional enrichment and answer synthesis are described in the [API guide](docs/API.md). Citation-ID validation establishes valid references, not claim entailment. Live-model validation remains pending.
+This sends query/map/evidence content to the selected endpoint. Navconr does not start Ollama or install models. Optional enrichment and answer synthesis are described in the [API guide](docs/API.md). Citation-ID validation establishes valid references, not claim entailment. A [single-passage Claude answer smoke test](reports/anthropic-smoke.json) passes; model-directed navigation and broader research validation remain pending.
 
 ## Budgets and provenance
+
+An opt-in Claude Messages adapter is available as `navconr.anthropic.AnthropicProvider`. It uses low effort, small configurable input/output caps, a free token-count preflight and no automatic retries. See the [Claude integration guide](docs/API.md#minimal-claude-integration) and [recorded smoke result](reports/anthropic-smoke.json). Routine tests never invoke it with real credentials.
 
 `Limits` bounds source bytes, map bytes, steps, expansions, model calls/tokens, retries, and elapsed time. Source and map byte usage are exact; model-token estimates are identified separately. The Ollama adapter reserves estimates before requests, limits outputs through the provider, reconciles reported usage, and charges failures conservatively. It rejects a requested hard token cap because it has no trusted preflight tokenizer.
 
@@ -192,7 +194,7 @@ npx playwright install chromium
 npm test
 ```
 
-`make check` runs Ruff, formatting, mypy, Python tests, and the viewer build. Browser tests prepare their own sample database. Routine checks use local fixtures and fake providers. Real-provider calls and model downloads are opt-in; the project's current live-model checks are deferred.
+`make check` runs Ruff, formatting, mypy, Python tests, and the viewer build. Browser tests prepare their own sample database. Routine checks use local fixtures and fake providers. Real-provider calls and model downloads are opt-in. One minimal Claude answer smoke test is recorded; broader model checks remain pending. The paid smoke script is excluded from ordinary checks.
 
 Run authored software evaluations with `make benchmark`, then optionally the second partition:
 

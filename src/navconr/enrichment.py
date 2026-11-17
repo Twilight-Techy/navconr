@@ -7,7 +7,7 @@ from pydantic import Field
 from .budget import Budget
 from .index import Index
 from .models import Edge, NavconrError, Record
-from .providers import OllamaProvider
+from .providers import StructuredProvider
 from .util import exact_slice, identity
 
 
@@ -16,7 +16,7 @@ class Enrichment(Record):
     related_node_ids: list[str] = Field(default_factory=list, max_length=10)
 
 
-async def enrich(index: Index, provider: OllamaProvider, budget: Budget):
+async def enrich(index: Index, provider: StructuredProvider, budget: Budget):
     original = index.store.load()
     data = original.model_copy(deep=True)
     changed = 0

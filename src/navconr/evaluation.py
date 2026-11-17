@@ -17,7 +17,7 @@ from .budget import Budget
 from .index import Index
 from .models import BudgetExceeded, Evidence, Limits, NavconrError, Record, Result, Usage
 from .navigation import Navigator
-from .providers import OllamaProvider
+from .providers import StructuredProvider
 from .util import digest, identity, terms
 
 METHODS = [
@@ -181,7 +181,7 @@ async def evaluate(
     budgets: list[int] | None = None,
     methods: list[str] | None = None,
     repeats: int = 1,
-    reader: OllamaProvider | None = None,
+    reader: StructuredProvider | None = None,
 ) -> dict:
     dataset = Dataset.model_validate_json(dataset_path.read_text())
     data = index.store.load()

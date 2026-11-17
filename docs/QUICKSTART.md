@@ -32,6 +32,6 @@ Optional model-directed navigation, when deliberately configured:
   --endpoint http://127.0.0.1:11434
 ```
 
-The selected endpoint receives query/map/evidence content. Navconr does not install models, start Ollama, or call a remote model by default. The current user's real-model checks are explicitly deferred. See [API](API.md) for optional enrichment and answer synthesis.
+The selected endpoint receives query/map/evidence content. Navconr does not install models, start Ollama, or call a remote model by default. One minimal Claude API answer smoke test is recorded; broader model checks remain pending. See [API](API.md) for optional enrichment and answer synthesis.
 
 Run the software smoke evaluation with `make benchmark`. Results include manifests and original per-question outcomes. They are authored fixtures, not independently reviewed research results. See [evaluation guidance](EVALUATION.md).

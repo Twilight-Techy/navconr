@@ -31,4 +31,4 @@ At the beginning of a session, read the rules, memory, and relevant tasks. Befor
 
 ## Current scope
 
-The user authorized building and running the complete project and confirmed that it is open source. Local implementation and software checks now exist, and the source is MIT licensed. The full plan still includes deferred live-model validation, independent research review/study, package-registry identity, dependency/asset review, and registry publication/submission gates. See STATUS.md for the distinction between completed local deliverables and open acceptance work.
+The user authorized building and running the complete project and confirmed that it is open source. Local implementation and software checks now exist, and the source is MIT licensed. One minimal Claude answer smoke test passes. The full plan still includes broader live-model validation, independent research review/study, package-registry identity, dependency/asset review, and registry publication/submission gates. See STATUS.md for the distinction between completed local deliverables and open acceptance work.

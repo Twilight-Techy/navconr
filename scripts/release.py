@@ -40,7 +40,7 @@ def main():
                 "artifacts": artifacts,
                 "publication": "not published to a package registry",
                 "license": "MIT",
-                "live_model_checks": "deferred by user",
+                "live_model_checks": "one minimal Claude answer smoke passed; broader checks pending",
             },
             indent=2,
         )

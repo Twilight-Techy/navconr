@@ -3,7 +3,7 @@ from __future__ import annotations
 from .budget import Budget
 from .index import Index
 from .models import Edge, NavconrError, Record
-from .providers import OllamaProvider
+from .providers import StructuredProvider
 
 
 def suggest_related(index: Index, *, minimum: float = 0.5, per_node: int = 2) -> list[Edge]:
@@ -44,7 +44,7 @@ class RelationDecision(Record):
 
 
 async def infer_pairs(
-    index: Index, pairs: list[tuple[str, str]], provider: OllamaProvider, budget: Budget
+    index: Index, pairs: list[tuple[str, str]], provider: StructuredProvider, budget: Budget
 ) -> list[Edge]:
     """Evaluate only known candidate endpoints; generated decisions cannot invent IDs."""
     session = index.session()
