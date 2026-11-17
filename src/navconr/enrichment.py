@@ -6,8 +6,8 @@ from pydantic import Field
 
 from .budget import Budget
 from .index import Index
+from .model import StructuredProvider, provider_cache_key
 from .models import Edge, NavconrError, Record
-from .providers import StructuredProvider
 from .util import exact_slice, identity
 
 
@@ -40,7 +40,7 @@ async def enrich(index: Index, provider: StructuredProvider, budget: Budget):
             "content": content,
             "candidates": [],
         }
-        key = identity("enrichment-1", provider.name, provider.base_url, prompt)
+        key = identity("enrichment-2", provider_cache_key(provider), prompt)
         cached = index.store.cache_get(key)
         result = (
             Enrichment.model_validate(cached)
@@ -65,7 +65,7 @@ async def enrich(index: Index, provider: StructuredProvider, budget: Budget):
     data.revision = identity(
         original.revision, "enrichment-1", [(nid, node.summary) for nid, node in data.nodes.items()]
     )
-    data.fingerprint = identity(original.fingerprint, "enrichment-1", provider.name)
+    data.fingerprint = identity(original.fingerprint, "enrichment-2", provider_cache_key(provider))
     index.store.publish(data, {})
     return {
         "revision": data.revision,

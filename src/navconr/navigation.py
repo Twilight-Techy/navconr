@@ -6,6 +6,7 @@ import uuid
 from typing import Literal
 
 from .index import Index, Session
+from .model import PolicyProvider
 from .models import (
     BudgetExceeded,
     DeadlineExceeded,
@@ -14,7 +15,6 @@ from .models import (
     NavconrError,
     Result,
 )
-from .providers import PolicyProvider
 from .search import STOPWORDS
 from .util import terms
 

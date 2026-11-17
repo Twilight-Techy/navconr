@@ -8,6 +8,7 @@ These documents cover the project from design through implementation, evaluation
 | --- | --- |
 | [Main README](../README.md) | Friendly introduction and first local run |
 | [Technical README](../README.technical.md) | Architecture, contracts, APIs, integrations, and development |
+| [INTEGRATION.md](INTEGRATION.md) | Embed the library with your existing agent, SDK client, or custom request format |
 | [MIT license](../LICENSE) | Open-source license for Navconr |
 | [STATUS.md](STATUS.md) | Implemented capabilities, verification and remaining gates |
 | [QUICKSTART.md](QUICKSTART.md) | Run the local library, CLI and inspector |

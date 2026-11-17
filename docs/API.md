@@ -1,5 +1,9 @@
 # Public API and integration guide
 
+Start with [embedding Navconr in an existing project](INTEGRATION.md). `Index`, `Session`, `AgentTools`, `ToolRequest`, `Navigator`, `CallableProvider`, `ModelRequest`, `ModelResponse`, and the provider protocols are exported from `navconr`. The core's model contracts live in `navconr.model` and import no concrete HTTP provider. Existing imports from `navconr.providers` remain compatible.
+
+An existing agent can call bounded tools without any Navconr model adapter. For optional model components, `CallableProvider` accepts an application-owned async function and normalizes its result with schema validation and shared budget accounting. It makes no assumptions about external SDKs, request envelopes or response fields. Provider identity is a safe opaque `cache_key` (or a unique `name`); a URL is not required. See [application-owned SDK examples](../examples/provider_clients.py).
+
 `Index(path)` owns a SQLite connection. Use it as a context manager or close it explicitly. `Index.ingest(root, block_bytes=2048, enricher=None)` publishes a complete revision, reuses unchanged source parsing when configuration matches, and preserves original bytes.
 
 `Index.session(revision=None, limits=None, encoder=None)` pins a revision and shares one budget across its tools. Convenience `Index.overview/search/expand/follow/read` each create a fresh session. Agent applications should keep a session rather than call convenience tools to simulate a shared budget.
@@ -65,16 +69,16 @@ import os
 from navconr.anthropic import AnthropicProvider
 
 provider = AnthropicProvider(
-    "claude-opus-5-5",
+    "claude-haiku-5-5",
     api_key=os.environ["ANTHROPIC_API_KEY"],
     max_input_tokens=600,
     max_output_tokens=160,
 )
 ```
 
-The adapter sends only to `https://api.anthropic.com`, uses API version `2026-10-21`, low effort, standard service, terse JSON prompts, a free token-count preflight, and provider-enforced output bounds. It fails before generation when the preflight exceeds the input cap. Token counts are estimates before execution, so a requested hard total-token guarantee is rejected. It never automatically retries or follows redirects; failed generation attempts consume their reservations conservatively. Only text output and token totals are retained; thinking blocks and raw HTTP error bodies are discarded. API keys stay in request headers and are not part of prompts, traces, cache keys or receipts. The CLI's model options currently configure Ollama; use Python for Claude.
+The adapter sends only to `https://api.anthropic.com`, uses API version `2026-10-21`, low effort, standard service, JSON prompts, a free token-count preflight, and provider-enforced output bounds. It fails before generation when the preflight exceeds the input cap. Token counts are estimates before execution, so a requested hard total-token guarantee is rejected. It never automatically retries or follows redirects; failed generation attempts consume their reservations conservatively. Only text output and token totals are retained; thinking blocks and raw HTTP error bodies are discarded. API keys stay in request headers and are not part of prompts, traces, cache keys or receipts. Use Python or a CLI provider factory for Claude; the `--model` convenience selects Ollama.
 
-The explicit paid smoke command is `.venv/bin/python scripts/smoke_anthropic.py`. It reads `ANTHROPIC_API_KEY` or prompts with hidden input, retrieves one short authored passage, verifies exact source bytes, asks for one cited answer, and writes a credential-free receipt. It permits one generation, 160 output tokens, zero retries and a 45-second deadline. It is excluded from ordinary tests/CI. Running it again can spend credits; the existing [receipt](../reports/anthropic-smoke.json) records the completed run. Broader live navigation/enrichment remains unverified.
+The explicit paid smoke command is `.venv/bin/python scripts/smoke_anthropic.py`. Future runs default to **Haiku**, read `ANTHROPIC_API_KEY` or prompt with hidden input, retrieve one short authored passage, verify exact source bytes, ask for one cited answer, and write a model-specific credential-free receipt. The script permits one generation, 160 output tokens, zero retries and a 45-second deadline. Opus requires an explicit `--model claude-opus-5-5`. It is excluded from ordinary tests/CI. Running it again can spend credits; the historical [Opus receipt](../reports/anthropic-smoke.json) remains unchanged and does not establish a live Haiku result. Broader live navigation/enrichment remains unverified.
 
 Protocol and pricing references: [Anthropic Messages API](https://platform.claude.com/docs/en/api/http/messages/create), [free token counting](https://platform.claude.com/docs/en/build-with-claude/token-counting), and [Opus 5.5 pricing](https://platform.claude.com/docs/en/models/opus-5-5/overview).
 

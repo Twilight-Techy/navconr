@@ -13,5 +13,6 @@
 - Authored software fixtures, reproducible local evaluation, scale profiling and release scripts.
 
 - Friendly main README, detailed technical README, and MIT licensing in source and distribution metadata.
+- HTTP-free model protocols, application-owned callable adapters, neutral cache identities, root embedding exports, project CLI factories, and offline OpenAI/Anthropic SDK mapping examples. Future paid smoke commands default to Haiku.
 
 Added an opt-in Claude Messages adapter, shared structured-provider protocol, and a single-generation smoke script with input/output caps and no retries. One cited-answer smoke test passes; broader real-model checks remain pending. Independent research evaluation, upstream-system reproductions, package-registry identity/release, dependency/asset review and paper submission remain pending. This is not a claim that all planned acceptance gates have passed.

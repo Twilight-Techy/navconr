@@ -75,7 +75,6 @@ async def test_common_reader_uses_only_retrieved_citations(index, tmp_path):
 
     class Reader:
         name = "fixture-reader"
-        base_url = "mock://fixture"
 
         async def structured(self, prompt, schema, budget):
             return Answer(text="30 days", span_ids=[prompt["evidence"][0]["span_id"]])

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import importlib
 import json
 import sys
 from pathlib import Path
@@ -20,6 +21,23 @@ def output(value):
     if isinstance(value, BaseModel):
         value = value.model_dump()
     print(json.dumps(value, indent=2, ensure_ascii=False))
+
+
+def model_provider(factory: str | None, model: str | None, endpoint: str, operation: str):
+    if factory:
+        try:
+            module, attribute = factory.split(":", 1)
+            provider = getattr(importlib.import_module(module), attribute)()
+        except Exception:
+            raise NavconrError("provider factory must be an importable module:callable") from None
+        if not isinstance(getattr(provider, "name", None), str) or not callable(
+            getattr(provider, operation, None)
+        ):
+            raise NavconrError(
+                f"provider factory must return an object with name and {operation}()"
+            )
+        return provider
+    return OllamaProvider(model, endpoint) if model else None
 
 
 def parser() -> argparse.ArgumentParser:
@@ -58,7 +76,9 @@ def parser() -> argparse.ArgumentParser:
         if name == "relate":
             command.add_argument("--minimum", type=float, default=0.5)
         if name == "enrich":
-            command.add_argument("--model", required=True)
+            selection = command.add_mutually_exclusive_group(required=True)
+            selection.add_argument("--model")
+            selection.add_argument("--provider-factory", metavar="MODULE:CALLABLE")
             command.add_argument("--endpoint", default="http://127.0.0.1:11434")
             command.add_argument("--model-tokens", type=int, default=16000)
         if name == "ingest":
@@ -96,7 +116,9 @@ def parser() -> argparse.ArgumentParser:
             command.add_argument(
                 "--policy", choices=["fixed", "adaptive", "model"], default="fixed"
             )
-            command.add_argument("--model")
+            selection = command.add_mutually_exclusive_group()
+            selection.add_argument("--model")
+            selection.add_argument("--provider-factory", metavar="MODULE:CALLABLE")
             command.add_argument("--endpoint", default="http://127.0.0.1:11434")
             command.add_argument("--steps", type=int, default=64)
             command.add_argument("--seconds", type=float, default=60)
@@ -112,7 +134,9 @@ def parser() -> argparse.ArgumentParser:
             command.add_argument("--port", type=int, default=8765)
             command.add_argument("--viewer", default=None)
         if name == "evaluate":
-            command.add_argument("--reader-model")
+            selection = command.add_mutually_exclusive_group()
+            selection.add_argument("--reader-model")
+            selection.add_argument("--reader-provider-factory", metavar="MODULE:CALLABLE")
             command.add_argument("--reader-endpoint", default="http://127.0.0.1:11434")
             command.add_argument("dataset")
             command.add_argument("--output", default="benchmarks/results")
@@ -154,7 +178,9 @@ def main(argv: list[str] | None = None) -> int:
                     asyncio.run(
                         enrich(
                             index,
-                            OllamaProvider(args.model, args.endpoint),
+                            model_provider(
+                                args.provider_factory, args.model, args.endpoint, "structured"
+                            ),
                             Budget(Limits(model_tokens=args.model_tokens, model_calls=10000)),
                         )
                     )
@@ -176,7 +202,9 @@ def main(argv: list[str] | None = None) -> int:
                     }
                 )
             elif command == "query":
-                provider = OllamaProvider(args.model, args.endpoint) if args.model else None
+                provider = model_provider(
+                    args.provider_factory, args.model, args.endpoint, "action"
+                )
                 result = asyncio.run(
                     Navigator(
                         index, policy=args.policy, provider=provider, search_mode=args.mode
@@ -250,9 +278,12 @@ def main(argv: list[str] | None = None) -> int:
                             Path(args.output),
                             split=args.split,
                             budgets=args.budgets,
-                            reader=OllamaProvider(args.reader_model, args.reader_endpoint)
-                            if args.reader_model
-                            else None,
+                            reader=model_provider(
+                                args.reader_provider_factory,
+                                args.reader_model,
+                                args.reader_endpoint,
+                                "structured",
+                            ),
                         )
                     )
                 )

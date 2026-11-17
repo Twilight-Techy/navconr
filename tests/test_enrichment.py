@@ -10,7 +10,6 @@ from navconr.navigation import Navigator
 async def test_atomic_enrichment_keeps_original_evidence(index):
     class Provider:
         name = "mock-enrichment"
-        base_url = "mock://local"
 
         async def structured(self, prompt, schema, budget):
             budget.charge(model_calls=1)
@@ -26,7 +25,6 @@ async def test_atomic_enrichment_keeps_original_evidence(index):
 async def test_invalid_enrichment_does_not_publish(index):
     class Provider:
         name = "invalid-enrichment"
-        base_url = "mock://invalid"
 
         async def structured(self, prompt, schema, budget):
             return Enrichment(summary="Hint", related_node_ids=["invented"])

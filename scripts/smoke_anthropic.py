@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import argparse
 import asyncio
 import getpass
 import hashlib
@@ -20,13 +21,24 @@ from navconr.models import NavconrError, Result
 ROOT = Path(__file__).resolve().parents[1]
 
 
-async def main():
-    destination = ROOT / "reports/anthropic-smoke.json"
+def options(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--model", choices=["claude-haiku-5-5", "claude-opus-5-5"], default="claude-haiku-5-5"
+    )
+    parser.add_argument("--output", type=Path)
+    return parser.parse_args(argv)
+
+
+async def main(argv=None):
+    args = options(argv)
+    destination = args.output or ROOT / "reports" / f"anthropic-smoke-{args.model}.json"
     destination.parent.mkdir(parents=True, exist_ok=True)
     # No CLI key argument, saved credential, environment dump, or raw HTTP log.
     api_key = os.environ.get("ANTHROPIC_API_KEY") or getpass.getpass("Anthropic API key (hidden): ")
     budget = Budget(Limits(model_calls=1, model_tokens=4096, retries=0, seconds=45))
-    provider = AnthropicProvider("claude-opus-5-5", api_key=api_key)
+    provider = AnthropicProvider(args.model, api_key=api_key)
+    input_price, output_price = (0.10, 0.50) if args.model == "claude-haiku-5-5" else (4, 20)
     report = {
         "timestamp": datetime.now(UTC).isoformat(),
         "model": provider.model,
@@ -36,8 +48,8 @@ async def main():
         "max_output_tokens": provider.max_output_tokens,
         "effort": "low",
         "retries": 0,
-        "price_usd_per_million": {"input": 4, "output": 20},
-        "pricing_source": "https://platform.claude.com/docs/en/models/opus-5-5/overview",
+        "price_usd_per_million": {"input": input_price, "output": output_price},
+        "pricing_source": "https://platform.claude.com/docs/en/about-claude/pricing",
         "status": "failed",
     }
     try:
@@ -62,7 +74,7 @@ async def main():
             retrieval = Result(
                 run_id="anthropic-smoke",
                 revision=session.data.revision,
-                query="How do I revoke a session?",
+                query="How do I revoke a session? Answer in at most 12 words.",
                 evidence=evidence,
                 trace=[],
                 usage=session.budget.usage,
@@ -90,7 +102,10 @@ async def main():
         report["provider_stop_reason"] = provider.last_stop_reason
         usage = provider.last_usage
         report["estimated_cost_usd"] = (
-            (usage["input_tokens"] * 4 + usage["output_tokens"] * 20) / 1_000_000 if usage else None
+            (usage["input_tokens"] * input_price + usage["output_tokens"] * output_price)
+            / 1_000_000
+            if usage
+            else None
         )
         destination.write_text(json.dumps(report, indent=2) + "\n")
         print(json.dumps(report, indent=2))

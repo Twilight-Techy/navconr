@@ -15,9 +15,9 @@ from pydantic import Field, model_validator
 from .answering import answer
 from .budget import Budget
 from .index import Index
+from .model import StructuredProvider, provider_cache_key
 from .models import BudgetExceeded, Evidence, Limits, NavconrError, Record, Result, Usage
 from .navigation import Navigator
-from .providers import StructuredProvider
 from .util import digest, identity, terms
 
 METHODS = [
@@ -230,7 +230,7 @@ async def evaluate(
         "cache": "warm source index; each method creates its own search session",
         "reader": {
             "name": reader.name,
-            "endpoint": reader.base_url,
+            "cache_key": provider_cache_key(reader),
             "limits": Limits().model_dump(),
         }
         if reader

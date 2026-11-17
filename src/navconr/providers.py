@@ -4,31 +4,17 @@ from __future__ import annotations
 
 import asyncio
 import json
-from typing import Protocol, TypeVar
 from urllib.parse import urlsplit
 
 import httpx
 from pydantic import BaseModel
 
 from .budget import Budget
+from .model import PolicyProvider as PolicyProvider
+from .model import ResponseModel as ResponseModel
+from .model import StructuredProvider as StructuredProvider
 from .models import Action, BudgetExceeded, NavconrError
-
-ResponseModel = TypeVar("ResponseModel", bound=BaseModel)
-
-
-class StructuredProvider(Protocol):
-    name: str
-    base_url: str
-
-    async def structured(
-        self, prompt: dict, schema: type[ResponseModel], budget: Budget
-    ) -> ResponseModel: ...
-
-
-class PolicyProvider(Protocol):
-    name: str
-
-    async def action(self, prompt: dict, budget: Budget) -> Action: ...
+from .util import identity
 
 
 class OllamaProvider:
@@ -57,6 +43,10 @@ class OllamaProvider:
         self.model, self.base_url = model, base_url.rstrip("/")
         self.name = f"ollama:{model}"
         self.client = client
+
+    @property
+    def cache_key(self) -> str:
+        return identity("ollama-json-1", self.model, self.base_url)
 
     async def structured(self, prompt: dict, schema: type[BaseModel], budget: Budget):
         if budget.limits.hard_model_tokens:

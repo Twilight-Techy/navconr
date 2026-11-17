@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from .budget import Budget
 from .index import Index
+from .model import StructuredProvider
 from .models import Edge, NavconrError, Record
-from .providers import StructuredProvider
 
 
 def suggest_related(index: Index, *, minimum: float = 0.5, per_node: int = 2) -> list[Edge]:

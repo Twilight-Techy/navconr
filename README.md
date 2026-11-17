@@ -28,6 +28,8 @@
 
 Navconr is a Python library that helps AI agents find their way through collections of documents and code. Think of a table of contents that connects related ideas across files and opens the original text behind each entry.
 
+**Embed it in your existing project.** Keep your model client, credentials, request format, and agent loop. Use the library's tools directly, or connect your own model call to its optional controller. [Integration guide →](docs/INTEGRATION.md)
+
 ## How it works
 
 ```mermaid
@@ -103,6 +105,7 @@ See the [format guide](docs/ADAPTERS.md) for extraction limits and supported str
 
 | I want to… | Start here |
 | --- | --- |
+| Plug Navconr into my existing project and model client | [Integration guide](docs/INTEGRATION.md) |
 | Understand the architecture and write Python code | [Technical README](README.technical.md) |
 | Connect an agent, MCP client, or model provider | [API & integrations](docs/API.md) |
 | Manage indexes, snapshots, and backups | [Operations](docs/OPERATIONS.md) |

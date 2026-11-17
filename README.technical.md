@@ -4,6 +4,8 @@ Navconr is a Python library for bounded navigation over versioned knowledge coll
 
 [Main README](README.md) · [API guide](docs/API.md) · [Current status](docs/STATUS.md) · [MIT license](LICENSE)
 
+Navconr embeds in existing Python projects without selecting a model or SDK. Keep your own agent loop and use `AgentTools`, or connect an existing async client with `CallableProvider`. The [integration guide](docs/INTEGRATION.md) covers both paths, OpenAI/Anthropic client mappings, and CLI provider factories. Other languages can connect through MCP.
+
 ## Architecture
 
 ```mermaid

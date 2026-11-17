@@ -5,8 +5,8 @@ from __future__ import annotations
 from pydantic import Field
 
 from .budget import Budget
+from .model import StructuredProvider
 from .models import NavconrError, Record, Result
-from .providers import StructuredProvider
 
 
 class Answer(Record):
